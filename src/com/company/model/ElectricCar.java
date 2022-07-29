@@ -1,4 +1,4 @@
-package com.company;
+package com.company.model;
 
 public class ElectricCar extends Car {
 
@@ -6,22 +6,22 @@ public class ElectricCar extends Car {
 
     public ElectricCar(String model, int maxSpeed, double price, String registrationNumber, int maxDistance) {
         super(model, maxSpeed, price, registrationNumber);
+        super.setFuelConsumption(0.0);
         this.maxDistance = maxDistance;
     }
 
     @Override
     public String toString() {
         return "ElectricCar {" +
-                " model = " + model +
-                ", maxSpeed = " + maxSpeed + " km/h" +
-                ", price = " + price + "$" +
+                " model = " + super.getModel() +
+                ", maxSpeed = " + super.getMaxSpeed() + " km/h" +
+                ", price = " + super.getPrice() + "$" +
                 ", maxDistance = " + maxDistance + " km" +
-                ", registrationNumber = " + registrationNumber +
+                ", registrationNumber = " + super.getRegistrationNumber() +
                 " }";
     }
 
-    @Override
-    public double getFuelConsumption() {
-        return 0;
+    public int getMaxDistance() {
+        return maxDistance;
     }
 }

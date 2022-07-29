@@ -1,11 +1,13 @@
-package com.company;
+package com.company.model;
 
 public abstract class Car {
 
-    String model;
-    int maxSpeed;
-    double price;
-    String registrationNumber;
+    private String model;
+    private int maxSpeed;
+    private double price;
+    private String registrationNumber;
+
+    private double fuelConsumption;
 
     public Car(String model, int maxSpeed, double price, String registrationNumber) {
         this.model = model;
@@ -30,5 +32,11 @@ public abstract class Car {
         return registrationNumber;
     }
 
-    public abstract double getFuelConsumption();
+    public double getFuelConsumption() {
+        return fuelConsumption;
+    }
+
+    public void setFuelConsumption(double fuelConsumption) {
+        this.fuelConsumption = fuelConsumption;
+    }
 }

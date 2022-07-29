@@ -1,9 +1,14 @@
 package com.company;
 
+import com.company.model.Car;
+import com.company.model.ElectricCar;
+import com.company.model.PassengerCar;
+import com.company.model.Truck;
+import com.company.service.CarCarDepotService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class CarDepotTest {
+class CarCarDepotServiceTest {
 
     @Test
     void whenSortByFuelConsumption_thenReturnSortedList() {
@@ -15,7 +20,7 @@ class CarDepotTest {
         ElectricCar electricCar2 = new ElectricCar("Tesla Model 3", 300, 35000, "AA2234BH", 350);
 
         Car[] inputList = {electricCar1, passengerCar1, passengerCar2, electricCar2, truck1, truck2};
-        CarDepot test = new CarDepot(inputList);
+        CarCarDepotService test = new CarCarDepotService(inputList);
 
         Car[] cars = test.sortCars(inputList);
         boolean result = true;
@@ -42,7 +47,7 @@ class CarDepotTest {
         ElectricCar electricCar2 = new ElectricCar("Tesla Model 3", 300, 35000, "AA2234BH", 350);
 
         Car[] inputList = {electricCar1, passengerCar1, passengerCar2, electricCar2, truck1, truck2};
-        CarDepot test = new CarDepot(inputList);
+        CarCarDepotService test = new CarCarDepotService(inputList);
 
         double expectations = 216500.0;
 
@@ -59,7 +64,7 @@ class CarDepotTest {
         ElectricCar electricCar2 = new ElectricCar("Tesla Model 3", 300, 35000, "AA2234BH", 350);
 
         Car[] inputList = {electricCar1, passengerCar1, passengerCar2, electricCar2, truck1, truck2};
-        CarDepot test = new CarDepot(inputList);
+        CarCarDepotService test = new CarCarDepotService(inputList);
         int minSpeed = 200;
         int maxSpeed = 300;
         Car[] cars = test.searchBySpeed(minSpeed, maxSpeed);
@@ -68,7 +73,7 @@ class CarDepotTest {
         int resultByCount = 4;
 
         for (int i = 0; i < cars.length; i++) {
-            if (cars[i].maxSpeed < minSpeed || cars[i].maxSpeed > maxSpeed) {
+            if (cars[i].getMaxSpeed() < minSpeed || cars[i].getMaxSpeed() > maxSpeed) {
                 resultByList = false;
                 break;
             }

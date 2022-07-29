@@ -1,4 +1,4 @@
-package com.company;
+package com.company.model;
 
 public class Truck extends PetrolCar {
 
@@ -12,13 +12,13 @@ public class Truck extends PetrolCar {
     @Override
     public String toString() {
         return "Truck {" +
-                " model = " + model +
-                ", maxSpeed = " + maxSpeed + " km/h" +
-                ", price = " + price + "$" +
-                ", fuelConsumption = " + fuelConsumption + " l/km" +
-                ", engineVolume = " + engineVolume + "l" +
+                " model = " + super.getModel() +
+                ", maxSpeed = " + super.getMaxSpeed() + " km/h" +
+                ", price = " + super.getPrice() + "$" +
+                ", fuelConsumption = " + super.getFuelConsumption() + " l/km" +
+                ", engineVolume = " + super.getEngineVolume() + "l" +
                 ", maxWeight = " + maxWeight + " kg" +
-                ", registrationNumber = " + registrationNumber +
+                ", registrationNumber = " + super.getRegistrationNumber() +
                 " }";
     }
 

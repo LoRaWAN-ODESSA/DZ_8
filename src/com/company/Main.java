@@ -1,5 +1,12 @@
 package com.company;
 
+import com.company.model.Car;
+import com.company.model.ElectricCar;
+import com.company.model.PassengerCar;
+import com.company.model.Truck;
+import com.company.service.CarCarDepotService;
+import com.company.view.PrintInfo;
+
 public class Main {
     public static void main(String[] args) {
         PassengerCar passengerCar1 = new PassengerCar("Audi A6", 220, 40000, "AC2821HA", 3.0, 15, "Black", "automatic");
@@ -12,11 +19,11 @@ public class Main {
 
         Car[] cars = {electricCar1, passengerCar1, passengerCar2, electricCar2, truck1, truck2, passengerCar3};
 
-        CarDepot carDepot = new CarDepot(cars);
+        CarCarDepotService carDepotService = new CarCarDepotService(cars);
 
         PrintInfo printInfo = new PrintInfo();
-        printInfo.printByConsumption(carDepot);
-        printInfo.printTotalPrice(carDepot);
-        printInfo.printBySpeed(carDepot, 200, 300);
+        printInfo.printByConsumption(carDepotService);
+        printInfo.printTotalPrice(carDepotService);
+        printInfo.printBySpeed(carDepotService, 200, 300);
     }
 }

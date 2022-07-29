@@ -1,11 +1,15 @@
-package com.company;
+package com.company.service;
 
-public class CarDepot {
+import com.company.model.Car;
+import com.company.model.PassengerCar;
+import com.company.model.Truck;
+
+public class CarCarDepotService implements CarDepot {
 
     private Car[] cars;
     private double totalPrice;
 
-    public CarDepot(Car[] cars) {
+    public CarCarDepotService(Car[] cars) {
         this.cars = cars;
         totalPrice = findTotalPrice();
     }
@@ -17,6 +21,7 @@ public class CarDepot {
         }
         return result;
     }
+
 
     public Car[] sortCars(Car[] cars) {
         int currentNumber = 0;
@@ -48,7 +53,7 @@ public class CarDepot {
         Car[] cars = getCars();
         Car[] result = new Car[]{};
         for (int i = 0; i < cars.length; i++) {
-            if (cars[i].maxSpeed >= min && cars[i].maxSpeed <= max) {
+            if (cars[i].getMaxSpeed() >= min && cars[i].getMaxSpeed() <= max) {
                 Car[] temp = new Car[result.length + 1];
                 if (result.length == 0) {
                     result = new Car[temp.length];
